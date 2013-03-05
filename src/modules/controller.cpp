@@ -5,13 +5,16 @@ namespace controller {
 	void test() {
 
 		// want to give the user the functionality to not only grab data, but also implement it easily	
-		// 
+		// first ask the user for input
+		// then call the encoder / compresser etc
+
 
 	}
 
 	void compressFile() {
 
 		// ask for filename
+		// verify that it exists
 		// 
 
 
