@@ -2,17 +2,17 @@
 
 namespace input {
 
-	Data * getStringData() {
+	Data getStringData() {
 
 		// will ask a user for particular types of data and will use string streams to filter out what we need
 
 	}	
 
-	Data * getIntegerData() {
+	Data getIntegerData() {
 
-		
+		// return a pointer to a new data structure -- only writing out integer data and only writing to integercontent array
 
-		
+
 	}
 
 

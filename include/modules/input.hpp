@@ -11,11 +11,13 @@
 */
 namespace input {
 
-	Data * getStringData();
+	// get string data using only string streams etc
+	Data getStringData();
+
+	// make sure that we are only getting integers into an array and then return that
+	Data getIntegerData();
 
 
-
-	
 
 }
 
