@@ -14,14 +14,13 @@ struct Data {
 
 };
 
-// data namespace etc
-namespace data {
+// save this for tomorrow -- should be able to implement very easily
+struct RLE {
 
-	void encode();
 
-	void decode();
 
-}
 
+
+};
 
 #endif
