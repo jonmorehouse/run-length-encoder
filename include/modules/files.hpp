@@ -7,6 +7,7 @@
 // standard includes
 #include <string>
 #include <list>
+#include <fstream>
 /*
 	This namespace will be responsible for reading / writing files
 	Will be responsible for pulling in proper file data

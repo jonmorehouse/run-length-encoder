@@ -53,9 +53,9 @@ void menuController() {
 }
 
 
-int main() {
+int main(int argc, char ** argv) {
 
-	menuController();//run the menu controller to initialize our program!	
+	// menuController();//run the menu controller to initialize our program!	
 
 
 }
