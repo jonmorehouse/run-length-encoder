@@ -11,7 +11,7 @@ namespace controller {
 		std::string test = "HELLO WORLD I AM ADFSJJON";
 
 		input::extractStringData(test.c_str());
-		
+			
 
 	}
 

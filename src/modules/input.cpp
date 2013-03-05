@@ -11,7 +11,7 @@ namespace input {
 
 		// make sure that the char length is of the proper size 
 		data.content = new char[data.length + 1];
-		strcopy(data.content, content);
+		// std::strcopy(data.content, content);
 
 		// return our structure of data	
 		return data;
@@ -20,12 +20,12 @@ namespace input {
 	Data extractIntegerData(const char * content) {
 
 		// use long to help in case of overflow
-		long integerContent;
+		// integerContent;
 		// grab the string stream content and extract only the numbers to a long element
-		std::stringstream(content) >> integerContent;
+		// std::stringstream(content) >> integerContent;
 
 		// 
-		Data data;//instantiate a new data element
+		// Data data;//instantiate a new data element
 
 
 
@@ -50,7 +50,27 @@ namespace input {
 
 	Data getIntegerData(int lines) {
 
+		// create the actual return data structure
+		Data data;
+		 
+
 		// return a pointer to a new data structure -- only writing out integer data and only writing to integercontent array
+		int intData[lines];//create an array to hold the input from our element
+		// grab the current line into a string	
+		std::string content;
+
+		// loop through each line that the user desires
+		do {
+
+			// actually grab the content
+			getline(std::cin, content);	
+			//process the raw string into pure integer data
+			std::stringstream(content) >> data[lines -1];//insert the data into a string?	
+
+		} while(--lines > 0);
+
+
+
 
 
 	}
