@@ -4,8 +4,8 @@
 // project includes
 #include "modules/data.hpp"
 
-
 // c++ includes
+#include <iostream>
 #include <sstream>
 
 /*
@@ -15,17 +15,18 @@
 namespace input {
 
 	// get string data using only string streams etc
-	Data getStringData();
+	Data getStringData(int lines = 1);
 
 	// make sure that we are only getting integers into an array and then return that
-	Data getIntegerData();
+	Data getIntegerData(int lines = 1);
 
-	Data extractStringData(char * content);//extract the string data from a raw array of characters
+	// extract only letters from a bunch of chars
+	Data extractStringData(const char * content);//extract the string data from a raw array of characters
 
-
-	Data extractIntegerData(char * content);//extract the string data from a raw array of characters	
-
-
+	// extract only integers from a bunch of chars
+	// require that we pass in a const char element so that the user doesn't have to include the c string element before hand
+	Data extractIntegerData(const char * content);//extract the string data from a raw array of characters	
+	
 }
 
 

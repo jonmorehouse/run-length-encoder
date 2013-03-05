@@ -7,6 +7,7 @@
 
 // include c libraries that are needed here
 #include <iostream>
+#include <string>
 
 
 /*
