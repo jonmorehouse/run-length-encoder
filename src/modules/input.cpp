@@ -52,20 +52,21 @@ namespace input {
 
 		// create the actual return data structure
 		Data data;
-		 
+		// cache the length fo the elements
+		data.length = lines;	 
+		//lets actually create the array of integer and store it in the data structure
+		data.intContent = new int[lines];//create a new array of integers
 
-		// return a pointer to a new data structure -- only writing out integer data and only writing to integercontent array
-		int intData[lines];//create an array to hold the input from our element
-		// grab the current line into a string	
-		std::string content;
+		// create a standard string to help us grab the content from the user
+		std::string tempContent;
 
 		// loop through each line that the user desires
 		do {
 
 			// actually grab the content
-			getline(std::cin, content);	
+			getline(std::cin, tempContent);	
 			//process the raw string into pure integer data
-			std::stringstream(content) >> data[lines -1];//insert the data into a string?	
+			std::stringstream(tempContent) >> data.intContent[lines -1];//insert the data into a string?	
 
 		} while(--lines > 0);
 
