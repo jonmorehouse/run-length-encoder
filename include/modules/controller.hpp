@@ -2,6 +2,8 @@
 #define CONTROLLER_HPP
 
 // include any project libraries
+#include "modules/data.hpp"
+#include "modules/input.hpp"
 
 // include c libraries that are needed here
 #include <iostream>
