@@ -17,6 +17,22 @@ namespace files {
 
 	char ** getFileContents(char * filename) {
 
+		// read the input file
+		std::ifstream file(filename);	
+
+		// check if the file exists and don't continue if not
+		if (!file.is_open()) return false;
+
+		// read the number of lines in the file for our array to store them properly etc
+		int lines = std::count(std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>(), '\n');
+
+		// now lets create a char of strings
+
+
+	}
+
+	char ** getFileBinaryContents(char * filename) {
+
 
 
 

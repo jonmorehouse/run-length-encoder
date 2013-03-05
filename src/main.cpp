@@ -57,5 +57,8 @@ int main(int argc, char ** argv) {
 
 	// menuController();//run the menu controller to initialize our program!	
 
+	char filename[] = "test.txt";
+
+	files::getFileContents(filename);//
 
 }

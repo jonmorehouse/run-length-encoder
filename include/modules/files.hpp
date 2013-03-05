@@ -3,11 +3,13 @@
 
 // project includes
 
-
 // standard includes
+#include <iostream>
 #include <string>
 #include <list>
 #include <fstream>
+
+
 /*
 	This namespace will be responsible for reading / writing files
 	Will be responsible for pulling in proper file data
@@ -22,6 +24,9 @@ namespace files {
 	// grab the contents
 	char ** getFileContents(char * filename);//grab the contents of the file and place them into a square array and return a pointer to this element
 
+	// grab the binary contents?
+	char ** getFileBinaryContents(char * filename);//grab the contents of the file from binary data	
+			
 	// save contents to a file 
 	void writeFile(char ** content);//write the compressed contents to a file
 
