@@ -27,7 +27,7 @@ namespace files {
 		int lines = std::count(std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>(), '\n');
 
 		// now lets create a char of strings
-
+		
 
 	}
 

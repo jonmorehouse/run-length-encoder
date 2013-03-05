@@ -1,5 +1,7 @@
 // include all project libraries	
 #include "modules/files.hpp"
+#include "modules/controller.hpp"
+
 
 
 // include project dependencies
@@ -57,8 +59,9 @@ int main(int argc, char ** argv) {
 
 	// menuController();//run the menu controller to initialize our program!	
 
-	char filename[] = "test.txt";
+	// if (argc == 1) controller::menu();// the user wants to use the interactive command line mode
+	// else controller::commandLine();//use the controller class to help us parse any application logic that was passed to the program at run time
 
-	files::getFileContents(filename);//
+	controller::test();//run our test suite
 
 }
