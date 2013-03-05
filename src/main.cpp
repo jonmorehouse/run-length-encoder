@@ -5,8 +5,6 @@
 
 // include project dependencies
 #include <iostream>
-#include <string>
-#include <sstream>
 
 void menuOptions() {
 
@@ -22,21 +20,14 @@ void menuController() {
 
 	// cache our menu selection locally with input
 	int selection;//this is the selection from our user
-	std::string rawInput;//this is the raw input of our function
 
 	do {
 
 		// print out the menu options
 		menuOptions();//actually display the various menu options etc for this program
 
-		// grab the generic standard input here
-		getline(std::cin, rawInput);
-
-		// grab the string's integer data into the stream and then convert it to an integer as the selection
-		std::stringstream(rawInput) >> selection;//take the integer value into the array	
-
-		// now lets clear the string properly for the next go around
-		rawInput.erase(rawInput.begin(), rawInput.end());
+		// grab the integer from our input module
+		selection = input::getInteger();//grab the integerjj
 
 		// switch will go here to load in the proper controller functions to operate 
 		switch (selection) {

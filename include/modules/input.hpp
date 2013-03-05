@@ -22,11 +22,9 @@ namespace input {
 
 	// extract only letters from a bunch of chars
 	Data extractStringData(const char * content);//extract the string data from a raw array of characters
-
-	// extract only integers from a bunch of chars
-	// require that we pass in a const char element so that the user doesn't have to include the c string element before hand
-	Data extractIntegerData(const char * content);//extract the string data from a raw array of characters	
 	
+	// create a basic function to use string streams and return a valid integer
+	int getInteger();//get a single integer
 }
 
 

@@ -17,19 +17,22 @@ namespace input {
 		return data;
 	}
 
-	Data extractIntegerData(const char * content) {
+	int getInteger() {
 
-		// use long to help in case of overflow
-		// integerContent;
-		// grab the string stream content and extract only the numbers to a long element
-		// std::stringstream(content) >> integerContent;
+		std::string lineData;//grab the current line data etc
+		int data;//this is the actual formatted data
 
-		// 
-		// Data data;//instantiate a new data element
+		// does string stream throw errors?
+		getline(std::cin, lineData);
 
+		// string stream to integer conversion
+		std::stringstream(lineData) >> data;
 
+		// return only the raw integer that we need for this functionality
+		return data;
 
 	}
+
 
 	Data getStringData(int lines) {
 
@@ -43,8 +46,10 @@ namespace input {
 			// grab the individual string line here
 			std::getline(std::cin, content);
 
+		// loop through for each number of the lines that were provided to us
 		} while (--lines > 0);
 
+		// extract string data will actually return a data structure
 		return extractStringData(content.c_str());
 	}	
 
@@ -63,17 +68,11 @@ namespace input {
 		// loop through each line that the user desires
 		do {
 
-			// actually grab the content
-			getline(std::cin, tempContent);	
-			//process the raw string into pure integer data
-			std::stringstream(tempContent) >> data.intContent[lines -1];//insert the data into a string?	
+			data.intContent[lines-1] = getInteger();//grab an integer for each line that we want to grab and put it into the array of values
 
 		} while(--lines > 0);
 
-
-
-
-
+		return data;
 	}
 
 
