@@ -68,13 +68,12 @@ namespace input {
 		// loop through each line that the user desires
 		do {
 
+			// place the integer content into our array
 			data.intContent[lines-1] = getInteger();//grab an integer for each line that we want to grab and put it into the array of values
 
 		} while(--lines > 0);
 
 		return data;
 	}
-
-
 
 }
