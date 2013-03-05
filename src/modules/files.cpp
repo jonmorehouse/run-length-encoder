@@ -1,16 +1,36 @@
 // include project depenendencies
-
-// #include "modules/files.hpp"
-#include "/Users/MorehouseJ09/Documents/courses/itp_499/assignments/assignment_1/include/modules/files.hpp"
+#include "modules/files.hpp"
 
 namespace files {
 
-	int test = 4;
+	bool fileExists(char * filename) {
 
 
 
 
+	}	
 
 
+	char ** getFileContents(char * filename) {
+
+
+
+
+	}
+
+	void writeFile(char ** content) {
+
+
+
+
+	}
+
+	
+	std::list<std::string> directoryFiles(char * directory) {
+
+
+
+
+	}
 
 }

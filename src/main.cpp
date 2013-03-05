@@ -1,6 +1,5 @@
 // include all project libraries	
-// #include "modules/files.hpp"
-#include "/Users/MorehouseJ09/Documents/courses/itp_499/assignments/assignment_1/include/modules/files.hpp"
+#include "modules/files.hpp"
 
 
 // include project dependencies
@@ -8,6 +7,7 @@
 
 void menuOptions() {
 
+	// print out all valid menu options as given in the assignment syllabus
 	std::cout << "1.) -- Run Tests.\n";
 	std::cout << "2.) -- Compress File.\n";
 	std::cout << "3.) -- Compress Directory.\n";
@@ -17,6 +17,7 @@ void menuOptions() {
 
 void menuController() {
 
+	// cache our menu selection locally with input
 	int input;
 
 	do {
@@ -47,8 +48,8 @@ void menuController() {
 				break;
 		}			
 
-	} while (input != 'q');
-
+	// break statement responsible for exiting the program etc
+	} while (input < 5);
 }
 
 
