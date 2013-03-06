@@ -5,6 +5,7 @@
 
 // standard includes
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <list>
 #include <fstream>
@@ -22,10 +23,10 @@ namespace files {
 	bool fileExists(char * filename);//will determine whether or not the file exists in the current scope etc
 
 	// grab the contents
-	char ** getFileContents(char * filename);//grab the contents of the file and place them into a square array and return a pointer to this element
+	char * getTextContents(char * filename);//grab the contents of the file and place them into a square array and return a pointer to this element
 
 	// grab the binary contents?
-	char ** getFileBinaryContents(char * filename);//grab the contents of the file from binary data	
+	char * getBinaryContents(char * filename);//grab the contents of the file from binary data	
 			
 	// save contents to a file 
 	void writeFile(char ** content);//write the compressed contents to a file

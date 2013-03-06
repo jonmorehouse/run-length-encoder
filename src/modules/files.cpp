@@ -15,37 +15,72 @@ namespace files {
 	}	
 
 
-	char ** getFileContents(char * filename) {
+	char * getTextContents(char * filename) {
+
+		// get the file contents into a c++ string
+		// convert that string to a char and return the pointer to it
+		// free up the c++ string
 
 		// read the input file
 		std::ifstream file(filename);	
+		// this is the temporary string for grabbing all of the content		
+		std::string current,//this is used for the current line
+			content;//this is what will come of the data afterward the stringstream fills
+
+		// data is what we will send back
+		char * data;//this is where the data will go when we are finished looping through the file and need to return something	
+
+		// declare our string stream
+		std::ostringstream output;
 
 		// check if the file exists and don't continue if not
 		if (!file.is_open()) return false;
 
-		// read the number of lines in the file for our array to store them properly etc
-		int lines = std::count(std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>(), '\n');
+		// use a while loop to grab the content
+		while (file.good()) {
 
-		// now lets create a char of strings
+			// grab the current line and then throw it into the stringstream
+			getline(file, current);//grab the raw content of the file and place it into the string
+			output << current;//send the current line to the output stream			
+		}
+
+		content = output.str();//cache the output stringstream as a c++ string
+
+		// close the file 
+		file.close();
+
+		// now lets convert the element to the proper string
+		data = new char[content.length() + 1];//grab the length of the current content and +1 it to create a valid char to return to our element	
+
+		// convert the c++ string to a const char (c->string) and then copy it over to the data array that we have created etc
+		std::strcpy(data, content.c_str());		
+
+		return data;// now lets just return the data that we are working with		
+	}
+
+	char * getBinaryContents(char * filename) {
+
+		std::ifstream file(filename, std::ios::in|std::ios::binary|std::ios::ate);
 		
+		// ensure that the file is open
+		if (!file.is_open()) return false;			
 
-	}
+		int size = file.tellg();//grab the size of the file (in binary)
+		char * data = new char[size];// grab the size of the file (not binary)
 
-	char ** getFileBinaryContents(char * filename) {
+		// set the initial position as the beginning of the file
+		file.seekg (0, std::ios::beg);
+		// now read in the entire file
+	    file.read (data, size);
+	    //close the file
+	    file.close();	
 
-
-
-
-	}
-
-	void writeFile(char ** content) {
-
-
-
-
+	    // return the data element
+	    return data;
 	}
 
 	
+		
 	std::list<std::string> directoryFiles(char * directory) {
 
 

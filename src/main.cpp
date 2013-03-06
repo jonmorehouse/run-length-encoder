@@ -1,6 +1,7 @@
 // include all project libraries	
 #include "modules/files.hpp"
 #include "modules/controller.hpp"
+#include "modules/data.hpp"
 
 
 // include project dependencies
@@ -61,6 +62,7 @@ int main(int argc, char ** argv) {
 	// if (argc == 1) controller::menu();// the user wants to use the interactive command line mode
 	// else controller::commandLine();//use the controller class to help us parse any application logic that was passed to the program at run time
 
-	controller::test();//run our test suite
+	// controller::test();//run our test suite
+		
 
 }
