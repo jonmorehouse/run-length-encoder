@@ -22,5 +22,13 @@ void RLE<T>::decompress(const T* input, int inputSize, int outputSize) {
 
 }
 
+template <typename T>
+int RLE<T>::maxRunSize() {
+
+	// make sure that this doesn't happen so that we are only using RLE for proper input types
+	// static_assert(false, "RLE not supported for this particular type");
+
+}
+
 
 #endif
