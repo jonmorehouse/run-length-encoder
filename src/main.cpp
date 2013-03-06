@@ -63,6 +63,7 @@ int main(int argc, char ** argv) {
 	// else controller::commandLine();//use the controller class to help us parse any application logic that was passed to the program at run time
 
 	// controller::test();//run our test suite
+	RLE<int> test;
 		
 
 }

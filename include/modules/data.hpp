@@ -3,7 +3,6 @@
 
 //project includes etc
 
-
 // c++ standard libraries
 #include <iostream>
 
@@ -35,10 +34,13 @@ struct RLE{
 	}
 
 	// compress the input data and store it as teh data element in this structure
-	// void compress(const T* input, int size);
+	void compress(const T* input, int size);
 
 	// decompress the data
-	// void decompress(const T* input, int size, int outsize);//takes in the data and will then return 
+	void decompress(const T* input, int size, int outsize);//takes in the data and will then return 
+
+	// grab the maximum run size element for this particular data type
+	int maxRunSize();// declare the maximum run
 
 	// declare a friend function that can be included in other projects to help output the data
 
@@ -46,6 +48,39 @@ struct RLE{
 
 // include the actual implementation of these files
 #include "data.tpp"
+
+// not lets declare the elements that we want to actually use this library with validly
+// now lets implement our basic max run length elements
+template <typename T>
+int RLE<T>::maxRunSize() {
+
+	// make sure that this doesn't happen so that we are only using RLE for proper input types
+	// static_assert(false, "RLE not supported for this particular type");
+
+}
+
+template <>
+int RLE<char>::maxRunSize() {
+
+	// this is the maximum run size as provided with the boilerplate code
+	return 127;
+
+}
+
+template <>
+int RLE<short>::maxRunSize() {
+
+	// maximum runsize for short elements
+	return 32767;	
+}
+
+template <>
+int RLE<int>::maxRunSize() {
+
+	// give the maximum integer run size as provided in the boilerplate code
+	return 214783647;	
+
+}
 
 
 
