@@ -37,7 +37,7 @@ struct RLE{
 	void compress(const T* input, int size);
 
 	// decompress the data
-	void decompress(const T* input, int size, int outsize);//takes in the data and will then return 
+	void decompress(const T* input, int size);//takes in the data and will then return 
 
 	// grab the maximum run size element for this particular data type
 	int maxRunSize();// declare the maximum run

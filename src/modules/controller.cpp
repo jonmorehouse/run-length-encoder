@@ -4,8 +4,11 @@ namespace controller {
 
 	void test() {
 
-		// want to give the user the functionality to not only grab data, but also implement it easily	
-		// first ask the user for input
+		RLE<char> * current = new RLE<char>();
+		const char compressed[11] = "5x3a5b6z8g";	
+
+		current->compress(compressed, 11);	
+
 	}
 
 	void compressFile() {
