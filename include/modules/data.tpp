@@ -10,38 +10,33 @@
 template <typename T>
 void RLE<T>::compress(const T* input, int size) {
 
-	T * data[100];//this is the data element	
-	T current = input[0];//current element
-	// compress the input here
-	int counter = 0, //which element of the input data that we are currently on
-		indexCounter = 0,//how long our element is 
-		currentRun = 1;//how long our current run is
+	// allocate the correct amount of memory and make sure that when you return it you are casting it properly
+	T * data = (T*)malloc(size * 2 * sizeof(T));//this is the data element	
 
-	// loop through the entire input element
-	while (counter < size) {
+	T current;//current element
 
-		if (input[counter] == current)
-			currentRun++;//update the current run to be plus one
+	// initialize various counter elements as needed for this function
+	int inputCounter = 0, //current input index
+		outputCounter = 0, //current output index
+		currentRun = 0,//current length of the run	
+		currentNegativeIndex = 0,//current element to update if we are still on a negative run
+		currentNegative = 0;//current negative run
 
-		// we don't have a match -- need to update the system accordingly
-		else {
+	do {
 
-			
-			// set the current index as the run length
-			// data[indexCounter] = static_cast<char *>(currentRun);//initialize the index counter
-			// move index counter right 1 so that we don't have to reallocate etc
-			// data[++indexCounter] = current;//store the variable in memory!
-			// update the index counter one more time so that the next time this happens we don't have to do anything to initialize!	
-			// ++indexCounter;//update the index counter for the next run
-			// currentRun = 0;
-		}
+		current = input[inputCounter];//cache the current input element
 
-		// now update the data counter to move right one element!
-		++counter;//update the counter for each loop to go to the next element
-	}
+
+		std::cout << current << std::endl;
+
+		inputCounter++;	
 
 
 
+
+	} while (inputCounter < size);
+
+	//end function
 }
 
 template <typename T>

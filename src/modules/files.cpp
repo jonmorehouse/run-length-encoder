@@ -34,7 +34,7 @@ namespace files {
 		std::ostringstream output;
 
 		// check if the file exists and don't continue if not
-		if (!file.is_open()) return false;
+		if (!file.is_open()) return static_cast<char>(false);
 
 		// use a while loop to grab the content
 		while (file.good()) {
@@ -63,7 +63,7 @@ namespace files {
 		std::ifstream file(filename, std::ios::in|std::ios::binary|std::ios::ate);
 		
 		// ensure that the file is open
-		if (!file.is_open()) return false;			
+		if (!file.is_open()) return static_cast<char>(false);			
 
 		int size = file.tellg();//grab the size of the file (in binary)
 		char * data = new char[size];// grab the size of the file (not binary)

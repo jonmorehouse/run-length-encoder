@@ -7,6 +7,8 @@
 // c++ includes
 #include <iostream>
 #include <sstream>
+#include <string>
+#include <cstring>
 
 /*
 	Input namespace is responsible for pulling in data

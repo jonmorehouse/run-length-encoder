@@ -1,14 +1,17 @@
 INCLUDE = -Iinclude
 
 LIBRARIES = 
-COMPILER = g++
+COMPILER = /usr/local/gcc/usr/local/bin/g++
+# COMPILER = g++
 SRC = src/*.cpp src/modules/*.cpp
-COMPILERFLAGS = -g -03 $(INCLUDE) $(PACKAGES)
+COMPILERFLAGS = -O3 -std=c++11 $(INCLUDE) $(PACKAGES)
+# COMPILERFLAGS = -O3 $(INCLUDE) $(PACKAGES)
+
 PROGRAM = current
 
 # compile our main file
 all: $(SRC)
-	$(COMPILER) -o $(PROGRAM) $(SRC) $(COMPILERFLAGS)
+	$(COMPILER) $(COMPILERFLAGS) -o $(PROGRAM) $(SRC)
 
 # clean up all relevant files
 clean: 
