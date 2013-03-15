@@ -113,7 +113,7 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 	// keep track of how many T spots we have left etc
 	T * data = (T*)malloc(size * sizeof(T));
 
-	
+		
 
 
 

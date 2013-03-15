@@ -12,8 +12,9 @@ namespace controller {
 
 	void compressFile() {
 
-		// ask for filename
-		// verify that it exists
+		//read in file
+		// compress it and save it to an extra name etc!
+		// just use c++ strings for all this etc...
 
 	}
 
