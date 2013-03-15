@@ -21,14 +21,15 @@ template <typename T>
 struct Element {
 
 	short length;//length of the element -- if its less than 0 then we know its a negative length and to look at how many elements we have!
-	char * content;//this is the type of elment that is stored etc
+	char * data;//this is the type of elment that is stored etc
 	
 };
 
 template <typename T>
 struct RLE{
 
-	T * data;//this is the data that will store the uncompressed / compressed data
+	// initialize a place in memory to store the array of the elemnet pieces that will store the compressed elements
+	Element<T> * data;//this is the data that will store the uncompressed / compressed data
 	int size;//this is how long the data currently is
 
 	RLE() : data(NULL) , size(0) {
