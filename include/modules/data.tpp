@@ -117,34 +117,39 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 
 	// this is responsible for running the process on the element to store the correct data
 	// take data in by reference because we need to reallocate the memory etc
-	auto process = [&data] (Element<T> element) {
+	auto process = [&data, &dataIndex, &memory] (Element<T> element) {
 
 		// get the size of the element 
 		short size = element.length;//cache the length of the element
 
-		// could do a cool nested negative run / normal run here
-		auto memoryWorker = [] (int length) {
+		// memoryWorker = resize our position of memory etc
+		auto memoryWorker = [] (short size) {
 
-			// do some work on our memory allocation because of the size
-			// need to see how we are looking on the memory we allocated and allocate more if necessary as well as update the proper space left
-		};	
+			if (dataIndex < memory) {
 
-		// negative run worker
-		auto negativeRun = [] () {
-
-			// assumes that the length was less than zero so we now need to run the 
-
-		};
-
-		// normal run worker
-		auto normalRun = [] () {
+					
+			}
 
 
 		};
 
 		// call proper functions to work on the memory
-		
+		// negative run
+		if (size < 0) {
+			// loop through the length of the element
+			for (int i = 0; i < size*-1; i++)
+				data[dataIndex++] = element.data[i];
+		}
 
+		// assume a normal run 
+		else {
+			// apply all of the normal run data to our data strength 
+			for (int i = 0; i < size; i++)
+				data[dataIndex++] = element.data[0];
+		}
+
+		// now call the memory worker to work on our memory allocation etc
+		memoryWorker((size < 0) ? (size * - 1) : (size));//call the memory worker based upon the size of the element so we can tell it the length! 
 	};
 
 	// loop through each of the elements -- does not necessarily correspond to the  
