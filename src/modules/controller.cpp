@@ -6,7 +6,7 @@ namespace controller {
 
 		RLE<char> * current = new RLE<char>();
 		const char compressed[11] = "555a5b6z8g";	
-		current->compress(compressed, 11);	
+		current->compress(compressed, 10);	
 
 
 	}

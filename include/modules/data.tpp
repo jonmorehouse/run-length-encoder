@@ -36,9 +36,6 @@ void RLE<T>::compress(const T* input, int size) {
 		Element<T> current = data[outputIndex];//cache the current element
 		T last = current.data[0];
 
-		printf("%c", last);
-
-		return false; 
 		// make sure the length is not greater than the normal
 		if (current.length > 1) return false;//this is a normal run
 
@@ -55,7 +52,6 @@ void RLE<T>::compress(const T* input, int size) {
 	// will need 
 	auto negativeRun = [&data, &outputIndex] (T _data) {
 
-		printf("%c\n", _data);
 		// now that we know we're running negative length, ensure that the length is adjusted accordingly
 		if (data[outputIndex].length > 0) data[outputIndex].length *= -1;
 
@@ -95,9 +91,7 @@ void RLE<T>::compress(const T* input, int size) {
 			newElement(input[inputIndex]);//initialize the element with the current data and then create a new one
 		}
 
-
-		// printf("%c", data[outputIndex].data[0]);
-
+		// increase the counter by one here
 		inputIndex++;//increase the input index 
 	}
 }
