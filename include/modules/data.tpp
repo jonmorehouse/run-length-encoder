@@ -101,8 +101,6 @@ void RLE<T>::compress(const T* input, const int size) {
 	// set up the global structure variables
 	this->size = outputIndex;//size of the output index -- ie: the number of elements we have
 	this->data = data;//set the pointer of global data to the pointer of the local data	
-
-	printf("%d", outputIndex);
 }
 
 template <typename T>
@@ -111,11 +109,49 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 	// allocate the initial size guessing that each element is size		
 	// each time its not, lets keep track so we can know exactly when we are out of space and allocate just that amount -- using some sort of average? 
 	// keep track of how many T spots we have left etc
-	T * data = (T*)malloc(size * sizeof(T));
+	int memory = size * sizeof(T),//initialize how much memory is left
+		dataIndex = 0;//index of current data position
 
+	// initialize the memory 
+	T * data = (T*)malloc(memory);//
+
+	// this is responsible for running the process on the element to store the correct data
+	// take data in by reference because we need to reallocate the memory etc
+	auto process = [&data] (Element<T> element) {
+
+		// get the size of the element 
+		short size = element.length;//cache the length of the element
+
+		// could do a cool nested negative run / normal run here
+		auto memoryWorker = [] (int length) {
+
+			// do some work on our memory allocation because of the size
+			// need to see how we are looking on the memory we allocated and allocate more if necessary as well as update the proper space left
+		};	
+
+		// negative run worker
+		auto negativeRun = [] () {
+
+			// assumes that the length was less than zero so we now need to run the 
+
+		};
+
+		// normal run worker
+		auto normalRun = [] () {
+
+
+		};
+
+		// call proper functions to work on the memory
 		
 
+	};
 
+	// loop through each of the elements -- does not necessarily correspond to the  
+	for (int i = 0; i < size; i++) {
+		// now we need to determine 
+		process(input[i]);	
+	}						
 
 }
 
