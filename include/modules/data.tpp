@@ -30,11 +30,15 @@ void RLE<T>::compress(const T* input, int size) {
 	};
 
 	// put our advanced logic here to check the negative
-	auto checkNegativeRun = [data, outputIndex, inputIndex, input] () {
+	// want to pull things in by reference so we can get the real-time variable values. Otherwise they are just cached once!
+	auto checkNegativeRun = [data, &outputIndex, &inputIndex, input] () {
 
 		Element<T> current = data[outputIndex];//cache the current element
-		T last = current.data[(current.length < 0) ? (current.length * -1 -1) :(current.length)];
+		T last = current.data[0];
 
+		printf("%c", last);
+
+		return false; 
 		// make sure the length is not greater than the normal
 		if (current.length > 1) return false;//this is a normal run
 
@@ -51,6 +55,7 @@ void RLE<T>::compress(const T* input, int size) {
 	// will need 
 	auto negativeRun = [&data, &outputIndex] (T _data) {
 
+		printf("%c\n", _data);
 		// now that we know we're running negative length, ensure that the length is adjusted accordingly
 		if (data[outputIndex].length > 0) data[outputIndex].length *= -1;
 
@@ -79,8 +84,8 @@ void RLE<T>::compress(const T* input, int size) {
 			data[outputIndex].length++;//increase the length by one for this particular run			
 
 		// check if the run should be a negative run! -- if so then call the negativeRun element
-		// else if (checkNegativeRun())//only returns true if it adheres to the rules above
-		// 	negativeRun(input[inputIndex]);//update the current element to ensure that its a negative run that incorporates the element
+		else if (checkNegativeRun())//only returns true if it adheres to the rules above
+		 	negativeRun(input[inputIndex]);//update the current element to ensure that its a negative run that incorporates the element
 
 		// otherwise just start a new element?
 		else {
@@ -90,7 +95,8 @@ void RLE<T>::compress(const T* input, int size) {
 			newElement(input[inputIndex]);//initialize the element with the current data and then create a new one
 		}
 
-		printf("%c", data[outputIndex].data[0]);
+
+		// printf("%c", data[outputIndex].data[0]);
 
 		inputIndex++;//increase the input index 
 	}
