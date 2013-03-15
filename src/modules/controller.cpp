@@ -5,9 +5,9 @@ namespace controller {
 	void test() {
 
 		RLE<char> * current = new RLE<char>();
-		const char compressed[11] = "5x3a5b6z8g";	
-
+		const char compressed[11] = "555a5b6z8g";	
 		current->compress(compressed, 11);	
+
 
 	}
 
@@ -15,8 +15,6 @@ namespace controller {
 
 		// ask for filename
 		// verify that it exists
-		// 
-
 
 	}
 

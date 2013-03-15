@@ -11,7 +11,7 @@
 template <typename T>
 void RLE<T>::compress(const T* input, int size) {
 
-	// initialize our place in memory to store a list of the element pieces
+		// initialize our place in memory to store a list of the element pieces
 	Element<T> * data = (Element<T>*)malloc(size * 2 * sizeof(Element<T>));
 
 	// initialize index variables 
@@ -60,6 +60,9 @@ void RLE<T>::compress(const T* input, int size) {
 		// now reallocate the memory properly to store the data
 		// reallocate will make the memory spot bigger and will move it if necessary!
 		data[outputIndex].data = (T*)realloc(data[outputIndex].data, data[outputIndex].length * -1 * sizeof(T)); 
+
+		// set the value properly now
+		data[outputIndex].data[data[outputIndex].length * -1 -1] = _data;
 	};
 
 
@@ -76,8 +79,8 @@ void RLE<T>::compress(const T* input, int size) {
 			data[outputIndex].length++;//increase the length by one for this particular run			
 
 		// check if the run should be a negative run! -- if so then call the negativeRun element
-		else if (checkNegativeRun())//only returns true if it adheres to the rules above
-			negativeRun(input[inputIndex]);//update the current element to ensure that its a negative run that incorporates the element
+		// else if (checkNegativeRun())//only returns true if it adheres to the rules above
+		// 	negativeRun(input[inputIndex]);//update the current element to ensure that its a negative run that incorporates the element
 
 		// otherwise just start a new element?
 		else {
@@ -87,9 +90,10 @@ void RLE<T>::compress(const T* input, int size) {
 			newElement(input[inputIndex]);//initialize the element with the current data and then create a new one
 		}
 
+		printf("%c", data[outputIndex].data[0]);
+
 		inputIndex++;//increase the input index 
 	}
-
 }
 
 template <typename T>
