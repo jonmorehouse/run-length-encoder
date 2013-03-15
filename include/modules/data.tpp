@@ -49,7 +49,7 @@ void RLE<T>::compress(const T* input, int size) {
 
 	};  
 
-	// will need 
+	// will update the negative run element according to our laws of negative runs etc
 	auto negativeRun = [&data, &outputIndex] (T _data) {
 
 		// now that we know we're running negative length, ensure that the length is adjusted accordingly
@@ -94,6 +94,11 @@ void RLE<T>::compress(const T* input, int size) {
 		// increase the counter by one here
 		inputIndex++;//increase the input index 
 	}
+
+	// could reallocate here -- but ... we have a problem determining the size of all the elements 
+	// work on this later
+
+
 }
 
 template <typename T>
