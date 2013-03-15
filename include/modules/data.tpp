@@ -123,14 +123,13 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 		short size = element.length;//cache the length of the element
 
 		// memoryWorker = resize our position of memory etc
-		auto memoryWorker = [] (short size) {
+		auto memoryWorker = [&data, &dataIndex, size, memory] () {
 
 			if (dataIndex < memory) {
-
-					
+				
+				int extraMemory = size - dataIndex + 1;//determine how much more space that we need to allocate
+				data = (T*)realloc(data, extraMemory);//allocate the actual memory
 			}
-
-
 		};
 
 		// call proper functions to work on the memory
@@ -149,7 +148,7 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 		}
 
 		// now call the memory worker to work on our memory allocation etc
-		memoryWorker((size < 0) ? (size * - 1) : (size));//call the memory worker based upon the size of the element so we can tell it the length! 
+		memoryWorker();//call the memory worker to resize our memory spot
 	};
 
 	// loop through each of the elements -- does not necessarily correspond to the  
