@@ -5,6 +5,7 @@
 
 // c++ standard libraries
 #include <iostream>
+#include <stdlib.h>
 
 // this data structure is vital for easily working with data throughout the input / output
 struct Data {
@@ -13,7 +14,6 @@ struct Data {
 	char * content;//will be the actual raw content as a cstring
 	int * intContent;//returns an array of integer data	
 	int length;//how long the content actually is etc	
-
 };
 
 // initialize a data structure that can hold all of the pieces of the element
@@ -21,8 +21,7 @@ template <typename T>
 struct Element {
 
 	short length;//length of the element -- if its less than 0 then we know its a negative length and to look at how many elements we have!
-	char * data;//this is the type of elment that is stored etc
-	
+	T * data;//this is the type of elment that is stored etc
 };
 
 template <typename T>
