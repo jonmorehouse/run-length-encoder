@@ -2,6 +2,7 @@
 #define DATA_TPP
 
 #include "modules/data.hpp"
+
 /*
 	TPP files are usually reserved for the implementation of template headers
 	This file should be included in the template header file	
@@ -11,32 +12,49 @@ template <typename T>
 void RLE<T>::compress(const T* input, int size) {
 
 	// allocate the correct amount of memory and make sure that when you return it you are casting it properly
-	T * data = (T*)malloc(size * 2 * sizeof(T));//this is the data element	
+	T * data = (T*)malloc(size * 2 * sizeof(<T>Element));//this is the data element	
 
-	T current;//current element
+	<T>Element * current;//equal the current element that we are storing
 
 	// initialize various counter elements as needed for this function
-	int inputCounter = 0, //current input index
-		outputCounter = 0, //current output index
+	int inputIndex = 0, //current input index
+		outputIndex= 0, //current output index
 		currentRun = 0,//current length of the run	
 		currentNegativeIndex = 0,//current element to update if we are still on a negative run
 		currentNegative = 0;//current negative run
 
 	do {
 
-		current = input[inputCounter];//cache the current input element
+		// cache current value
+		current = input[inputIndex];//cache the current input element
 
+		if (outputIndex > 0 && input[inputIndex] == data[outputIndex - 1])	
+			data[outputIndex - 2] += 1;//iterate the element up one		
 
-		std::cout << current << std::endl;
+		// otherwise we need to actually store the element as a normal rle
+		else {
 
-		inputCounter++;	
+			// save the element that we want to store!
+			data[outputIndex] = static_cast<char*>(1); 
 
+			std::cout << data[outputIndex] << std::endl;
+			outputIndex++;//increment output index 1 for the next element
 
+			// save the data element
+			data[outputIndex] = input[inputIndex];
 
+			outputIndex++;//increment up one for the next run of the element
+		}
 
-	} while (inputCounter < size);
+		// functionality for negative runs ...
+		inputIndex++;//iterate the counter up one!
+
+	} while (inputIndex < size);
 
 	//end function
+	// for (int i = 0; i < outputIndex; i++)
+	// 	std::cout << data[i] << std::endl;
+
 }
 
 template <typename T>
