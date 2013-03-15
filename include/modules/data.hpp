@@ -39,14 +39,13 @@ struct RLE{
 	~RLE() {
 
 		delete data;//actually remove our data and free this structure
-
 	}
 
 	// compress the input data and store it as teh data element in this structure
-	void compress(const T* input, int size);
+	void compress(const T* input, const int size);
 
 	// decompress the data
-	void decompress(const T* input, int size);//takes in the data and will then return 
+	void decompress(const Element<T> * input, const int size);//takes in the data and will then return 
 
 	// grab the maximum run size element for this particular data type
 	int maxRunSize();// declare the maximum run

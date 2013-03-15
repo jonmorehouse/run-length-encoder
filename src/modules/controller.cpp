@@ -5,10 +5,9 @@ namespace controller {
 	void test() {
 
 		RLE<char> * current = new RLE<char>();
-		const char compressed[11] = "555a5b6z8g";	
-		current->compress(compressed, 10);	
-
-
+		const char compressed[14] = "555a5b6z8g555";	
+		current->compress(compressed, 13);	
+		// current->decompress(compressed, 4);
 	}
 
 	void compressFile() {

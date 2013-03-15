@@ -9,7 +9,7 @@
 */
 // this should be in the namespace data?
 template <typename T>
-void RLE<T>::compress(const T* input, int size) {
+void RLE<T>::compress(const T* input, const int size) {
 
 		// initialize our place in memory to store a list of the element pieces
 	Element<T> * data = (Element<T>*)malloc(size * 2 * sizeof(Element<T>));
@@ -98,25 +98,24 @@ void RLE<T>::compress(const T* input, int size) {
 	// could reallocate here -- but ... we have a problem determining the size of all the elements 
 	// work on this later
 
+	// set up the global structure variables
+	this->size = outputIndex;//size of the output index -- ie: the number of elements we have
+	this->data = data;//set the pointer of global data to the pointer of the local data	
 
+	printf("%d", outputIndex);
 }
 
 template <typename T>
-void RLE<T>::decompress(const T* input, int inputSize) {
+void RLE<T>::decompress(const Element<T> * input, const int size) {//this assumes that 
 
-	// decompress the code / logic here etc
-	// know that the output size is the element that we need to 
+	// allocate the initial size guessing that each element is size		
+	// each time its not, lets keep track so we can know exactly when we are out of space and allocate just that amount -- using some sort of average? 
+	// keep track of how many T spots we have left etc
+	T * data = (T*)malloc(size * sizeof(T));
+
+	
 
 
-	// want to deallocate the input data after we are done?			
-	// 	
-
-	for (int i = 0; i < inputSize; i++) {
-
-		std::cout << input[i] << std::endl;
-
-	}
-		
 
 }
 
