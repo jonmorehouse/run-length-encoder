@@ -125,9 +125,10 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 		// memoryWorker = resize our position of memory etc
 		auto memoryWorker = [&data, &dataIndex, size, memory] () {
 
+			// check that the dataIndex is still less than the memory allocation!
 			if (dataIndex < memory) {
-				
-				int extraMemory = size - dataIndex + 1;//determine how much more space that we need to allocate
+
+				int extraMemory = (size - dataIndex + 1) * sizeof(T);//determine how much more space that we need to allocate
 				data = (T*)realloc(data, extraMemory);//allocate the actual memory
 			}
 		};
@@ -136,15 +137,19 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 		// negative run
 		if (size < 0) {
 			// loop through the length of the element
-			for (int i = 0; i < size*-1; i++)
+			for (int i = 0; i < size*-1; i++) {
 				data[dataIndex++] = element.data[i];
+				memoryWorker();				
+			}
 		}
 
 		// assume a normal run 
 		else {
 			// apply all of the normal run data to our data strength 
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < size; i++) {
 				data[dataIndex++] = element.data[0];
+				memoryWorker();
+			}
 		}
 
 		// now call the memory worker to work on our memory allocation etc
@@ -157,6 +162,7 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 		process(input[i]);	
 	}						
 
+	printf("%s", data);
 }
 
 template <typename T>
