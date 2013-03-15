@@ -3,10 +3,10 @@ INCLUDE = -Iinclude
 LIBRARIES = 
 
 COMPILER = /usr/local/gcc/usr/local/bin/g++ 
-COMPILER = g++
+# COMPILER = g++
 SRC = src/*.cpp src/modules/*.cpp
-COMPILERFLAGS = -O3 -std=c++11 -Wall $(INCLUDE) $(PACKAGES)
-COMPILERFLAGS = -O3 $(INCLUDE) $(PACKAGES)
+COMPILERFLAGS = -O3 -std=c++11 -lstdc++ $(INCLUDE) $(PACKAGES)
+# COMPILERFLAGS = -O3 $(INCLUDE) $(PACKAGES)
 
 PROGRAM = current
 
