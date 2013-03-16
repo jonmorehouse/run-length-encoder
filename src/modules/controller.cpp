@@ -21,8 +21,9 @@ namespace controller {
 		std::string filename;
 		std::cout << "Please enter file name: ";	
 		std::cin >> filename;//cache the filename
-		sdt::cout << std::endl;
+		std::cout << std::endl;
 
+		// compress the file
 		compressFile(filename);//actually run the filename element	
 
 	}

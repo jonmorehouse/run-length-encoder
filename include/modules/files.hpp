@@ -14,6 +14,10 @@
 #include <fstream>
 #include <stdlib.h>
 
+// include mac specific headers to get files
+#include <sys/types.h>
+#include <sys/dir.h>
+
 
 /*
 	This namespace will be responsible for reading / writing files
@@ -35,7 +39,7 @@ namespace files {
 	void writeFile(const char ** content);//write the compressed contents to a file
 
 	// grab a list of directory files -- will need to re-implement with windows / mac etc
-	std::list<std::string> directoryFiles(char * directory);//iterate through a directory and return files that exist
+	std::list<std::string> directoryFiles(const char * directoryFile);//iterate through a directory and return files that exist
 
 }
 

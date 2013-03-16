@@ -84,11 +84,12 @@ namespace files {
 	    return data;
 	}
 		
-	std::list<std::string> directoryFiles(const char * directory) {
+	std::list<std::string> directoryFiles(const char * directoryName) {
 
+		std::list<std::string> files;//list of files that we can iterate through
+		DIR * directory;
 
-
-
+		
 	}
 
 }
