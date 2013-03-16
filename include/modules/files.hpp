@@ -10,13 +10,14 @@
 #include <sstream>
 #include <string>
 #include <cstring>
-#include <list>
+#include <vector>
 #include <fstream>
 #include <stdlib.h>
 
 // include mac specific headers to get files
 #include <sys/types.h>
 #include <sys/dir.h>
+#include <sys/stat.h>
 
 
 /*
@@ -39,7 +40,7 @@ namespace files {
 	void writeFile(const char ** content);//write the compressed contents to a file
 
 	// grab a list of directory files -- will need to re-implement with windows / mac etc
-	std::list<std::string> directoryFiles(const char * directoryFile);//iterate through a directory and return files that exist
+	void directoryFiles(const char * directoryFile, std::vector<const char *> & files);//iterate through a directory and return files that exist
 
 }
 

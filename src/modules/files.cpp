@@ -84,12 +84,48 @@ namespace files {
 	    return data;
 	}
 		
-	std::list<std::string> directoryFiles(const char * directoryName) {
+	void directoryFiles(const char * directoryName, std::vector<const char *> & files) {
 
-		std::list<std::string> files;//list of files that we can iterate through
+		// current directory object
 		DIR * directory;
+		// temporary structure for working with the directory
+		// http://www.delorie.com/gnu/docs/dirent/dirent.5.html
+		struct dirent *current;
 
-		
+		//http://pubs.opengroup.org/onlinepubs/009695299/basedefs/sys/stat.h.html
+		struct stat filestat;//file statistic struct
+		// create a directory pointer
+		directory = opendir(directoryName);
+
+		// cache the current filename to help with comparisons / directory elements ...
+		std::string currentFilename;
+		std::string currentPath;//current file path
+
+
+		// exit if the directory is not workable
+		if (directory == NULL) exit(1);
+
+		// loop through each member of the directory
+		while (current = readdir(directory)) {
+
+			// cache current filename by using the dirent structure method
+			currentFilename = std::string(current->d_name);
+			currentPath = std::string(directoryName).append("/").append(currentFilename);
+			stat(currentPath.c_str(), &filestat);
+
+			// cast the filename entry as a c++ string to help for comparisons
+			// if ( currentFilename == "." || currentFilename == ".." || currentFilename == std::string(directoryName)) continue;
+
+			// make sure that the element is not a directory and if so then append the files
+			// if it is go ahead and append the files in that directory
+			if (S_ISDIR(filestat.st_mode))		
+				directoryFiles(currentPath.c_str(), files);		
+
+			// 
+			else
+				files.push_back(currentPath.c_str());
+		}
+
 	}
 
 }
