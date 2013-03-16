@@ -1,4 +1,3 @@
-
 #include "modules/controller.hpp"
 
 namespace controller {
@@ -7,6 +6,7 @@ namespace controller {
 
 		RLE<char> * current = new RLE<char>();
 		const char compressed[14] = "555a5b6z8g555";	
+		
 		current->compress(compressed, 13);	
 
 		current->decompress(current->data, current->size);
@@ -14,7 +14,7 @@ namespace controller {
 	}
 
 	void compressFile() {
-
+/*
 		//read in file
 		// compress it and save it to an extra name etc!
 		// just use c++ strings for all this etc...
@@ -24,13 +24,15 @@ namespace controller {
 		if (!files::fileExists(filename))
 			exit(1);
 
-		
+		// initiliaze a data RLE Structure to hold our data
+		RLE<char> * rle = new RLE<char>();				
+		Data<char> * data = files::getTextContents(filename); 
 
-		// initiliaze a data RLE Structure
-		RLE<char> * data = new RLE<char>();				
-		
+		// printf("%s", data->data);
+						
+		// data->compress(files::getTextContents->compress(data->data, data->length));		
 
-
+*/
 	}
 
 	void compressDirectory() {

@@ -8,9 +8,11 @@ VPATH = src
 BUILDDIR = build
 # include proper libraries etc
 # use the g++ 4.8 compiler instead of the defaul apple xcode cli tools installed version (4.2)
-COMPILER = /usr/local/gcc/usr/local/bin/g++
+# COMPILER = /usr/local/gcc/usr/local/bin/g++
+COMPILER = clang++
 # be sure to pass the proper flags to include c++11 support
-COMPILERFLAGS = -O3 -std=c++11 $(INCLUDE)
+# COMPILERFLAGS = -O3 -std=c++11 $(INCLUDE)
+COMPILERFLAGS = -v -stdlib=libc++ -std=c++0x $(INCLUDE)
 
 # lets define our cc-compile command to prevent repetitiveness 
 define cc-command
