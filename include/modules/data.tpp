@@ -174,15 +174,23 @@ void RLE<T>::writeFile(const char * filename) {
 	// if the file is an error just exit for now
 	if (!file.is_open()) exit(1);
 
-	
+	// loop through all elements of compressed data before writing them out!
+	for (int i = 0; i <= this->size; i++) {
 
+		// print out the length first
+		file << this->data[i].length;
+		// now grab the actual T data that was stored!
+		file << this->data[i].data;
+	}	
 
-
+	// close file and possibly print some sort of message here in the future?
+	file.close();
 }
 
 template <typename T>
 int RLE<T>::maxRunSize() {
 
+	// this was implemented in basic run element but not sure what we should be doing here in the future?
 	// make sure that this doesn't happen so that we are only using RLE for proper input types
 	// static_assert(false, "RLE not supported for this particular type");
 

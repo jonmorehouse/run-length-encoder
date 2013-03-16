@@ -33,7 +33,7 @@ namespace controller {
 		rle->compress(data->data, data->length);
 
 		// write the file using our rle element!
-		rle->writeFile("safd");
+		rle->writeFile("test.txt.rle");
 	}
 
 	void compressDirectory() {
