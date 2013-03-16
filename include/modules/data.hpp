@@ -8,13 +8,14 @@
 #include <stdlib.h>
 
 // this data structure is vital for easily working with data throughout the input / output
-struct Data {
+// template <typename T>
+// struct Data {
 
-	// this can be changed -- is not a constant string
-	char * content;//will be the actual raw content as a cstring
-	int * intContent;//returns an array of integer data	
-	int length;//how long the content actually is etc	
-};
+// 	// this can be changed -- is not a constant string
+// 	char * content;//will be the actual raw content as a cstring
+// 	int * intContent;//returns an array of integer data	
+// 	int length;//how long the content actually is etc	
+// };
 
 // initialize a data structure that can hold all of the pieces of the element
 template <typename T>

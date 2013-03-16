@@ -3,19 +3,19 @@
 
 namespace files {
 
-	bool fileExists(char * filename) {
+	bool fileExists(const char * filename) {
 	
 		std::fstream file(filename);//initialize a file stream with the input file name		
 
 		// return the status of the file stream
 		if (file) return true;	
 
+		// 
 		else return false;
-
 	}	
 
 
-	char * getTextContents(char * filename) {
+	char * getTextContents(const char * filename) {
 
 		// get the file contents into a c++ string
 		// convert that string to a char and return the pointer to it
@@ -58,7 +58,7 @@ namespace files {
 		return data;// now lets just return the data that we are working with		
 	}
 
-	char * getBinaryContents(char * filename) {
+	char * getBinaryContents(const char * filename) {
 
 		std::ifstream file(filename, std::ios::in|std::ios::binary|std::ios::ate);
 		
@@ -81,7 +81,7 @@ namespace files {
 
 	
 		
-	std::list<std::string> directoryFiles(char * directory) {
+	std::list<std::string> directoryFiles(const char * directory) {
 
 
 
