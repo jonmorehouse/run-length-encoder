@@ -84,7 +84,7 @@ namespace files {
 	    return data;
 	}
 		
-	void directoryFiles(const char * directoryName, std::vector<const char *> & files) {
+	void directoryFiles(const char * directoryName, std::vector<const char *> * files) {
 
 		// current directory object
 		DIR * directory;
@@ -111,19 +111,19 @@ namespace files {
 			// cache current filename by using the dirent structure method
 			currentFilename = std::string(current->d_name);
 			currentPath = std::string(directoryName).append("/").append(currentFilename);
-			stat(currentPath.c_str(), &filestat);
+			// stat(currentPath.c_str(), &filestat);
 
+			std::cout << currentPath << std::endl;
+			
 			// cast the filename entry as a c++ string to help for comparisons
-			// if ( currentFilename == "." || currentFilename == ".." || currentFilename == std::string(directoryName)) continue;
+			if ( currentFilename == "." || currentFilename == ".." || currentFilename == std::string(directoryName)) continue;
 
 			// make sure that the element is not a directory and if so then append the files
 			// if it is go ahead and append the files in that directory
-			if (S_ISDIR(filestat.st_mode))		
-				directoryFiles(currentPath.c_str(), files);		
 
 			// 
 			else
-				files.push_back(currentPath.c_str());
+				files->push_back(currentPath.c_str());
 		}
 
 	}

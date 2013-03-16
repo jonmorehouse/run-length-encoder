@@ -40,7 +40,7 @@ namespace files {
 	void writeFile(const char ** content);//write the compressed contents to a file
 
 	// grab a list of directory files -- will need to re-implement with windows / mac etc
-	void directoryFiles(const char * directoryFile, std::vector<const char *> & files);//iterate through a directory and return files that exist
+	void directoryFiles(const char * directoryFile, std::vector<const char *> * files);//iterate through a directory and return files that exist
 
 }
 

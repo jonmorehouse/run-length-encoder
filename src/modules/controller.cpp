@@ -34,7 +34,7 @@ namespace controller {
 		std::vector<const char *>files;
 
 		// initialize the files vector
-		files::directoryFiles("build/modules", files);
+		files::directoryFiles("build/modules", &files);
 
 		// for each of the files work on them!
 		for_each(files.begin(), files.end(), [] (const char * filename) {
