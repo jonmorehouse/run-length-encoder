@@ -157,12 +157,14 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 	};
 
 	// loop through each of the elements -- does not necessarily correspond to the  
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i <= size; i++) {
 		// now we need to determine 
 		process(input[i]);	
 	}						
 
-	printf("%s", data);
+	this->uncompressedData = data;//change the uncompressed pointer to the data pointer
+
+			
 }
 
 template <typename T>

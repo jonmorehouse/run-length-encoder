@@ -22,6 +22,8 @@ endef
 # initiaalize all files in the classes directory
 CPP_FILES := $(wildcard src/classes/*.cpp) $(wildcard src/modules/*.cpp)
 
+TEMPLATE_FILES := $(wildcard include/classes/*.tpp) $(wildcard include/modules/*.tpp)
+
 # object files are created via the substitution path
 OBJECTS = $(patsubst src/%.cpp, $(BUILDDIR)/%.o, $(CPP_FILES))
 
@@ -29,12 +31,12 @@ OBJECTS = $(patsubst src/%.cpp, $(BUILDDIR)/%.o, $(CPP_FILES))
 PROGRAM = current
 
 # declare the classes build command!
-$(BUILDDIR)/%.o: %.cpp
+$(BUILDDIR)/%.o: %.cpp $(TEMPLATE_FILES)
 	# cc command is generic for all objects being created
 	$(cc-command) 	
 
 # compile all
-all: $(OBJECTS)
+all: $(OBJECTS) 
 
 	$(COMPILER) $(COMPILERFLAGS) -o $(PROGRAM) src/main.cpp $(OBJECTS) $(LIBRARIES)
 

@@ -29,6 +29,7 @@ struct RLE{
 
 	// initialize a place in memory to store the array of the elemnet pieces that will store the compressed elements
 	Element<T> * data;//this is the data that will store the uncompressed / compressed data
+	T * uncompressedData;//this is the raw data
 	int size;//this is how long the data currently is
 
 	RLE() : data(NULL) , size(0) {
