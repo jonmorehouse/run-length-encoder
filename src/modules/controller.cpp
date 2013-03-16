@@ -17,8 +17,15 @@ namespace controller {
 		//read in file
 		// compress it and save it to an extra name etc!
 		// just use c++ strings for all this etc...
+		const char filename[20] = "test.txt";
 
+		if (!files::fileExists(filename))
+			exit(1);
+
+		RLE<char> * data = new RLE<char>();				
 		
+
+
 	}
 
 	void compressDirectory() {
