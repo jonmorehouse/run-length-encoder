@@ -10,6 +10,7 @@
 #include <sstream>
 #include <string>
 #include <cstring>
+#include <string.h>
 #include <vector>
 #include <fstream>
 #include <stdlib.h>

@@ -100,6 +100,7 @@ namespace files {
 		// cache the current filename to help with comparisons / directory elements ...
 		std::string currentFilename;
 		std::string currentPath;//current file path
+		char * entry;
 
 
 		// exit if the directory is not workable
@@ -111,10 +112,8 @@ namespace files {
 			// cache current filename by using the dirent structure method
 			currentFilename = std::string(current->d_name);
 			currentPath = std::string(directoryName).append("/").append(currentFilename);
-			// stat(currentPath.c_str(), &filestat);
+			stat(currentPath.c_str(), &filestat);
 
-			std::cout << currentPath << std::endl;
-			
 			// cast the filename entry as a c++ string to help for comparisons
 			if ( currentFilename == "." || currentFilename == ".." || currentFilename == std::string(directoryName)) continue;
 
@@ -122,10 +121,14 @@ namespace files {
 			// if it is go ahead and append the files in that directory
 
 			// 
-			else
-				files->push_back(currentPath.c_str());
-		}
+			else {
 
+				entry = new char[currentPath.size()]();
+				strcpy(entry, currentPath.c_str());	
+				files->push_back(entry);
+			} 
+			// 	
+		}
 	}
 
 }
