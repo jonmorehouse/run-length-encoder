@@ -18,8 +18,11 @@ namespace controller {
 		//read in file
 		// compress it and save it to an extra name etc!
 		// just use c++ strings for all this etc...
-		const char filename[20] = "test.txt";
-
+		std::string filename;
+		std::cout << "Please enter file name: ";	
+		std::cin >> filename;//cache the filename
+/*	
+		// const char filename[20] = "test.txt";
 		// make sure the file exists before using
 		if (!files::fileExists(filename))
 			exit(1);
@@ -34,6 +37,7 @@ namespace controller {
 
 		// write the file using our rle element!
 		rle->writeFile("test.txt.rle");
+*/
 	}
 
 	void compressDirectory() {
@@ -54,6 +58,24 @@ namespace controller {
 		// will be responsible for parsing any command line functionality and then using that to talk to the application controllr
 		
 
+	}
+
+
+	/******** PRIVATE MODULE FUNCTIONS ********/
+	void compressFile(std::string filename) {
+
+		
+
+
+	}
+
+	void decompressFile(std::string filename) {
+
+
+
+
+
+		
 	}
 
 }

@@ -24,6 +24,10 @@ namespace controller {
 	void compressDirectory();//responsible for compressing an entire directory	
 	void decompressFile();//responsible for decompressing a file	
 	void commandLine();//run the command line mode of the application
+
+	// private module functions
+	void compressFile(std::string filename);	
+	void decompressFile(std::string filename);
 }
 
 #endif
