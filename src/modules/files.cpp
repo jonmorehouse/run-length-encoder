@@ -119,15 +119,16 @@ namespace files {
 
 			// make sure that the element is not a directory and if so then append the files
 			// if it is go ahead and append the files in that directory
+			else if(S_ISDIR(filestat.st_mode))    
+				directoryFiles(currentPath.c_str(), files);    
 
 			// 
 			else {
 
-				entry = new char[currentPath.size()]();
+				entry = new char[currentPath.size()];
 				strcpy(entry, currentPath.c_str());	
 				files->push_back(entry);
 			} 
-			// 	
 		}
 	}
 
