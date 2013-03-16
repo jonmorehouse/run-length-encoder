@@ -14,7 +14,7 @@ namespace controller {
 	}
 
 	void compressFile() {
-/*
+
 		//read in file
 		// compress it and save it to an extra name etc!
 		// just use c++ strings for all this etc...
@@ -26,18 +26,19 @@ namespace controller {
 
 		// initiliaze a data RLE Structure to hold our data
 		RLE<char> * rle = new RLE<char>();				
+		// initialize the data element for the particular string etc
 		Data<char> * data = files::getTextContents(filename); 
 
-		// printf("%s", data->data);
-						
-		// data->compress(files::getTextContents->compress(data->data, data->length));		
+		// compress the data
+		rle->compress(data->data, data->length);
 
-*/
+		// write the file using our rle element!
+		rle->writeFile("safd");
 	}
 
 	void compressDirectory() {
 
-
+		
 
 	}
 

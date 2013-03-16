@@ -163,8 +163,15 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 	}						
 
 	this->uncompressedData = data;//change the uncompressed pointer to the data pointer
+}
 
-			
+template <typename T>
+void RLE<T>::writeFile(const char * filename) {
+
+	
+
+
+
 }
 
 template <typename T>

@@ -48,6 +48,9 @@ struct RLE{
 	// decompress the data
 	void decompress(const Element<T> * input, const int size);//takes in the data and will then return 
 
+	// write the file 
+	void writeFile(const char * filename);//throw in a filename to write the compressed data too!
+
 	// grab the maximum run size element for this particular data type
 	int maxRunSize();// declare the maximum run
 

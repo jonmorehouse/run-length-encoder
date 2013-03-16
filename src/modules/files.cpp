@@ -14,7 +14,6 @@ namespace files {
 		else return false;
 	}	
 
-
 	Data<char> * getTextContents(const char * filename) {
 
 		// get the file contents into a c++ string
@@ -50,6 +49,7 @@ namespace files {
 
 		// now lets convert the element to the proper string
 		data->data = new char[content.length() + 1];//grab the length of the current content and +1 it to create a valid char to return to our element	
+		data->length = content.length() + 1;
 
 		// convert the c++ string to a const char (c->string) and then copy it over to the data array that we have created etc
 		std::strcpy(data->data, content.c_str());		
@@ -83,8 +83,6 @@ namespace files {
 	    // return the data element
 	    return data;
 	}
-
-	
 		
 	std::list<std::string> directoryFiles(const char * directory) {
 
