@@ -21,28 +21,16 @@ namespace controller {
 		std::string filename;
 		std::cout << "Please enter file name: ";	
 		std::cin >> filename;//cache the filename
-/*	
-		// const char filename[20] = "test.txt";
-		// make sure the file exists before using
-		if (!files::fileExists(filename))
-			exit(1);
+		sdt::cout << std::endl;
 
-		// initiliaze a data RLE Structure to hold our data
-		RLE<char> * rle = new RLE<char>();				
-		// initialize the data element for the particular string etc
-		Data<char> * data = files::getTextContents(filename); 
+		compressFile(filename);//actually run the filename element	
 
-		// compress the data
-		rle->compress(data->data, data->length);
-
-		// write the file using our rle element!
-		rle->writeFile("test.txt.rle");
-*/
 	}
 
 	void compressDirectory() {
 
-		
+				
+
 
 	}
 
@@ -64,18 +52,38 @@ namespace controller {
 	/******** PRIVATE MODULE FUNCTIONS ********/
 	void compressFile(std::string filename) {
 
-		
+		// simply outputs the file to the correct file name etc using our algorithm
+		// make sure the file exists before using
+		if (!files::fileExists(filename.c_str())) {
 
+			std::cout << "Invalid filename. Exiting.";
+			exit(1);
 
+		}
+
+		// initiliaze a data RLE Structure to hold our data
+		RLE<char> * rle = new RLE<char>();				
+		// initialize the data element for the particular string etc
+		Data<char> * data = files::getTextContents(filename.c_str()); 
+
+		// compress the data
+		rle->compress(data->data, data->length);
+
+		// write the file using our rle element!
+		rle->writeFile(filename.append(".rle").c_str());
+
+		delete data;
+		delete rle;
 	}
 
 	void decompressFile(std::string filename) {
 
 
-
-
-
+		// will take in a file
 		
+
+
+
 	}
 
 }
