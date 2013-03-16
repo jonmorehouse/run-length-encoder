@@ -6,6 +6,7 @@
 // c++ standard libraries
 #include <iostream>
 #include <stdlib.h>
+#include <fstream>
 
 // this data structure is vital for easily working with data throughout the input / output
 // initialize a data structure that can hold all of the pieces of the element

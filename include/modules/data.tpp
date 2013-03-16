@@ -168,6 +168,12 @@ void RLE<T>::decompress(const Element<T> * input, const int size) {//this assume
 template <typename T>
 void RLE<T>::writeFile(const char * filename) {
 
+	// initialize our output stream to write the data too
+	std::ofstream file(filename, std::ios::out | std::ios::app | std::ios::binary);
+
+	// if the file is an error just exit for now
+	if (!file.is_open()) exit(1);
+
 	
 
 
