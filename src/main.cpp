@@ -28,7 +28,7 @@ void menuController() {
 		menuOptions();//actually display the various menu options etc for this program
 
 		// grab the integer from our input module
-		selection = input::getInteger();//grab the integerjj
+		std::cin >> selection;
 
 		// switch will go here to load in the proper controller functions to operate 
 		switch (selection) {

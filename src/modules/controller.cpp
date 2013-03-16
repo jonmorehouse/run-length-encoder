@@ -20,9 +20,13 @@ namespace controller {
 		// just use c++ strings for all this etc...
 		const char filename[20] = "test.txt";
 
+		// make sure the file exists before using
 		if (!files::fileExists(filename))
 			exit(1);
 
+		
+
+		// initiliaze a data RLE Structure
 		RLE<char> * data = new RLE<char>();				
 		
 

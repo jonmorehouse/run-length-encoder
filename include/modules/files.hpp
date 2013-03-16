@@ -2,6 +2,8 @@
 #define FILES_HPP
 
 // project includes
+// include data so that we can properly conrol the data that we will return
+#include "modules/data.hpp"
 
 // standard includes
 #include <iostream>
@@ -24,10 +26,10 @@ namespace files {
 	bool fileExists(const char * filename);//will determine whether or not the file exists in the current scope etc
 
 	// grab the contents
-	char * getTextContents(const char * filename);//grab the contents of the file and place them into a square array and return a pointer to this element
+	Data<char> * getTextContents(const char * filename);//grab the contents of the file and place them into a square array and return a pointer to this element
 
 	// grab the binary contents?
-	char * getBinaryContents(const char * filename);//grab the contents of the file from binary data	
+	Data<char> * getBinaryContents(const char * filename);//grab the contents of the file from binary data	
 			
 	// save contents to a file 
 	void writeFile(const char ** content);//write the compressed contents to a file
