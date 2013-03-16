@@ -34,16 +34,13 @@ namespace controller {
 		std::vector<const char *>files;
 
 		// initialize the files vector
-		files::directoryFiles("build/modules", &files);
+		files::directoryFiles("build", &files);
 
-		// for each of the files work on them!
 		for_each(files.begin(), files.end(), [] (const char * filename) {
 
-			std::cout << filename << std::endl;
+			compressFile(filename);			
 
-		});				
-
-
+		});			
 	}
 
 	void decompressFile() {
@@ -56,7 +53,7 @@ namespace controller {
 	void commandLine() {
 
 		// will be responsible for parsing any command line functionality and then using that to talk to the application controllr
-		
+		// functionality can come later on 
 
 	}
 
